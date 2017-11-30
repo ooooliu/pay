@@ -1,0 +1,22 @@
+{
+    "name": "ooooliu/pay",
+    "description": "For easy pay",
+    "keywords": ["alipay", "wechat", "pay"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lyn",
+            "email": "yan252079467@vip.qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ooooliu\\Pay\\": "src"
+        }
+    }
+}
