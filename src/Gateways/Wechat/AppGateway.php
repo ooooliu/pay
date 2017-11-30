@@ -6,10 +6,9 @@ use Ooooliu\Pay\Exceptions\InvalidArgumentException;
 
 class AppGateway extends Wechat
 {
+
     /**
      * get trade type config.
-     *
-     * @author yansongda <me@yansongda.cn>
      *
      * @return string
      */
@@ -35,13 +34,13 @@ class AppGateway extends Wechat
 
         $payRequest = [
             'appid'     => $this->pay_config['appid'],
-            'partnerid' => $this->pay_config['mch_id'],
-            'prepayid'  => $this->preOrder($config_biz)['prepay_id'],
-            'timestamp' => time(),
             'noncestr'  => $this->createNonceStr(),
             'package'   => 'Sign=WXPay',
+            'partnerid' => $this->pay_config['mch_id'],
+            'prepayid'  => $this->preOrder($config_biz)['prepay_id'],
+            'timestamp' => time()
         ];
-        $payRequest['sign'] = $this->getSign($payRequest);
+        $payRequest['paySign'] = $this->getSign($payRequest);
 
         return $payRequest;
     }
