@@ -210,7 +210,7 @@ abstract class Alipay implements GatewayInterface
         $data = json_decode($this->post($this->gateway, $this->config), true);
 
         if (!isset($data[$method]['code']) || $data[$method]['code'] !== '10000') {
-            throw new InvalidArgumentException('get result error:'.$data[$method]['msg'].' - '.$data[$method]['sub_code'], $data[$method]['code'], $data);
+            throw new InvalidArgumentException('get result error:'.$data[$method]['msg'].' - '.$data[$method]['sub_code']);
         }
 
         return $this->verify($data[$method], $data['sign'], true);
