@@ -206,7 +206,7 @@ abstract class Wechat implements GatewayInterface
         }
 
         if (isset($error)) {
-            throw new InvalidArgumentException($error, 20000, $data);
+            throw new InvalidArgumentException($error);
         }
 
         return $data;
