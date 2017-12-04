@@ -4,7 +4,7 @@ namespace Ooooliu\Pay\Gateways\Wechat;
 
 use Ooooliu\Pay\Exceptions\InvalidArgumentException;
 
-class JsapiGateway extends Wechat
+class WapGateway extends Wechat
 {
 
     /**
