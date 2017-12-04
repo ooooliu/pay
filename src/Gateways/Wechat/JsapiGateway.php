@@ -4,7 +4,7 @@ namespace Ooooliu\Pay\Gateways\Wechat;
 
 use Ooooliu\Pay\Exceptions\InvalidArgumentException;
 
-class JsApiGateway extends Wechat
+class JsapiGateway extends Wechat
 {
 
     /**
@@ -26,12 +26,12 @@ class JsApiGateway extends Wechat
      */
     public function pay(array $config_biz = [])
     {
-        if (is_null($this->pay_config->get('app_id'))) {
-            throw new InvalidArgumentException('Missing Config -- [app_id]');
+        if (is_null($this->pay_config['appid'])) {
+            throw new InvalidArgumentException('Missing Config -- [appid]');
         }
 
         $payRequest = [
-            'appId'     => $this->pay_config->get('app_id'),
+            'appId'     => $this->pay_config['appid'],
             'timeStamp' => time(),
             'nonceStr'  => $this->createNonceStr(),
             'package'   => 'prepay_id='.$this->preOrder($config_biz)['prepay_id'],
