@@ -2,7 +2,7 @@
 
 namespace Ooooliu\Pay\Gateways\Alipay;
 
-class AppGateway extends Alipay
+class WebGateway extends Alipay
 {
 
     /**
@@ -12,20 +12,18 @@ class AppGateway extends Alipay
      */
     protected function getMethod()
     {
-        return 'alipay.trade.app.pay';
+        return 'alipay.trade.page.pay';
     }
 
-
     /**
-     * get productCode method.
+     * get productCode config.
      *
      * @return string
      */
     protected function getProductCode()
     {
-        return 'QUICK_MSECURITY_PAY';
+        return 'FAST_INSTANT_TRADE_PAY';
     }
-
 
     /**
      * pay a order.
@@ -37,6 +35,6 @@ class AppGateway extends Alipay
     {
         parent::pay($config_biz);
 
-        return http_build_query($this->config);
+        return $this->buildPayHtml();
     }
 }

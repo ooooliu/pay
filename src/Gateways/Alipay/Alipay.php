@@ -187,7 +187,6 @@ abstract class Alipay implements GatewayInterface
         }
         $sHtml .= "<input type='submit' value='ok' style='display:none;'></form>";
         $sHtml .= "<script>document.forms['alipaysubmit'].submit();</script>";
-
         return $sHtml;
     }
 
