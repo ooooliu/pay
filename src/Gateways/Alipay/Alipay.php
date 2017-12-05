@@ -156,7 +156,11 @@ abstract class Alipay implements GatewayInterface
 
         $toVerify = $sync ? json_encode($data) : $this->getSignContent($data, true);
 
-        return openssl_verify($toVerify, base64_decode($sign), $res, OPENSSL_ALGO_SHA256) === 1 ? $data : false;
+        if(isset($data['sign_type']) && $data['sign_type'] == 'RSA2'){
+            return openssl_verify($toVerify, base64_decode($sign), $res, OPENSSL_ALGO_SHA256) === 1 ? $data : false;
+        } else {
+            return openssl_verify($toVerify, base64_decode($sign), $res) === 1 ? $data : false;
+        }
     }
 
     /**
