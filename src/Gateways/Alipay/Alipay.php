@@ -54,6 +54,7 @@ abstract class Alipay implements GatewayInterface
             'format'      => 'JSON',
             'method'      => '',
             'notify_url'  => $config->get('notify_url', ''),
+            'return_url'  => $config->get('return_url', ''),
             'sign_type'   => $config->get('sign_type', 'RSA'),
             'timestamp'   => date('Y-m-d H:i:s'),
             'version'     => '1.0'
