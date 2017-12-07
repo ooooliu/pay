@@ -86,35 +86,32 @@ abstract class Alipay implements GatewayInterface
      * refund a order.
      *
      * @param $config_biz
-     * @param null $refund_amount
-     * @return array|bool
+     * @param int $refund_amount
+     * @return bool
      */
-    public function refund($config_biz, $refund_amount = null)
+    public function refund($config_biz, $refund_amount = 0)
     {
         if (!is_array($config_biz)) {
             $config_biz = [
                 'out_trade_no'  => $config_biz,
                 'refund_amount' => $refund_amount,
+                'refund_reason'=> '正常退款'
             ];
         }
-
         return $this->getResult($config_biz, 'alipay.trade.refund');
     }
 
     /**
      * close a order.
      *
-     * @param $config_biz
-     * @return array|bool
+     * @param $out_trade_no
+     * @return bool
      */
-    public function close($config_biz)
+    public function close($out_trade_no = '')
     {
-        if (!is_array($config_biz)) {
-            $config_biz = [
-                'out_trade_no' => $config_biz,
-            ];
-        }
-
+        $config_biz = [
+            'out_trade_no' => $out_trade_no,
+        ];
         return $this->getResult($config_biz, 'alipay.trade.close');
     }
 
