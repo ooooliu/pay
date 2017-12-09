@@ -188,8 +188,8 @@ abstract class Wechat implements GatewayInterface
                 $end_point,
                 $this->toXml($this->config),
                 [
-                    'cert'    => $this->pay_config['cert_client'],
-                    'ssl_key' => $this->pay_config['cert_key'],
+                    'cert'    => $this->pay_config['cert'],
+                    'ssl_key' => $this->pay_config['ssl_key'],
                 ]
             ));
         } else {
