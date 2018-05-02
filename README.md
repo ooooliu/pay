@@ -35,11 +35,13 @@ laravel 扩展包请 [传送至这里](https://github.com/ooooliu/pay)
 
 SDK 中对应的 driver 和 gateway 如下表所示：  
 
-| driver | gateway |   描述       |
-| :----: | :-----: | :-------:   |
+| driver | gateway |   描述      |
+| :----: | :-----: | :-------:  |
 | alipay | web     | 电脑支付     |
 | alipay | wap     | 手机网站支付  |
-| alipay | app     | APP 支付  |
+| alipay | app     | APP 支付    |
+| alipay | scan    | 扫码支付     |
+| alipay | transfer| 帐户转账(可用于平台用户提现)|
   
 ### 2、微信
 
@@ -53,7 +55,9 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 | :----: | :-----: | :-------: |
 | wechat | mp      | 公众号支付  |
 | wechat | wap     | H5 支付    |
-| wechat | app     | APP 支付  ||
+| wechat | app     | APP 支付   |
+| wechat | scan    | 扫码支付    |
+| wechat | transfer| 企业付款    |
 
 ## 支持的方法
 
